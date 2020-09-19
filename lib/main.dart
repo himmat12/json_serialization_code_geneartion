@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:json_serialization_code_gen/pages/gallery_page.dart';
 import 'package:json_serialization_code_gen/pages/user_page.dart';
 
 void main() => runApp(MyApp());
@@ -24,22 +23,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Json Serialization 04\nCode Generation Approach"),
+        title: Text("Json Serialization 04\nCode Generation Library"),
       ),
       body: ListView(
         children: [
-          Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Galleryage(),
-                    ));
-              },
-              title: Text("Gallery - JSON API Data [Code Generation]"),
-            ),
-          ),
           Card(
             child: ListTile(
               onTap: () {
