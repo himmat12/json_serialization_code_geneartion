@@ -8,14 +8,28 @@ class UserService {
   List data = [];
   var response;
 
-  List<User> userList = [];
+  Iterable<User> userList = [];
 
-  Future<List<User>> getUser() async {
+  Future<List<User>> getUser({String id, String query}) async {
     url = 'https://jsonplaceholder.typicode.com/users';
     response = await http.get(url);
     data = json.decode(response.body);
 
     userList = data.map((e) => User.fromJson(e)).toList();
+
+// filter - user data -> id
+    if (id != null) {
+      userList = userList
+          .where((element) => element.id.toString().contains(id))
+          .toList();
+    }
+
+// search - user data -> name
+    if (query != null) {
+      userList = userList
+          .where((element) => element.name.toLowerCase().contains(query))
+          .toList();
+    }
 
     return userList;
   }
